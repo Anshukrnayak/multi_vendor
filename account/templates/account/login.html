@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container-fuild mx-5 my-5">
+
+        <div class="row d-flex justify-content-center ">
+
+
+            <div class="col-6">
+                
+                <p class="fs-4"> Login </p>
+            
+                
+                {% for message in messages %}
+                        <p> {{message}} </p>
+
+                {% endfor %}
+
+
+                <form method="post" >
+                    {% csrf_token %}
+            
+
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">username</label>
+                      <input type="text" class="form-control border-secondary" id="username" name='username' >
+                    </div>
+                    
+                    <div class="mb-3">
+                      <label for="exampleInputPassword1" class="form-label">Password</label>
+                      <input type="password" class="form-control  border-secondary" id="password" name='password'>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary my-3">Login</button>
+
+                  </form>
+
+
+            </div>
+            
+        </div>
+
+    </div>
+
+
+{% endblock  %}

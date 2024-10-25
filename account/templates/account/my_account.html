@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fluild">
+
+    <div class="row">
+        <div class="col">
+
+        <p class="fs-3 mx-4  my-3 "> vendor : {{request.user}} </p>
+        
+        <a href="{% url 'logout' %}" class="btn btn-outline-info mx-4">Logout</a>
+        </div>
+    
+    </div>
+
+    <div class="row d-flex justify-content-center  my-5 ">
+
+
+        {% if messages  %}
+
+        {% for message in messages %}
+               <div class="col">
+                <p class="px-2 py-2 text-white rounded text-center bg-primary mx-5 fs-3 "> {{message}} </p>
+               </div>
+        {% endfor %}
+        
+        {% endif %}
+
+        {% if product_list %}
+
+        {% for product in product_list %}
+
+        <div class="col-3 mx-2 my-3 ">
+            <div href="" class="card border-secondary bg-secondary text-white rounded " style="width: 18rem;">
+
+                <img src="{{ product.image.url }}"" class="" alt=" ...">
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        <p>{{product.name}}</p>
+                    </h5>
+                    <p class="card-text">Price ${{product.price}} </p>
+                    <p class="card-text"> {{product.description}} </p>
+
+                    <a href="" class="btn btn-outline-primary mx-2">Edit</a>
+                    <a href="{% url 'delete_account' product.id %}" class="btn btn-outline-danger   mx-4">Delete</a>
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+
+        {% endif %}
+
+    </div>
+</div>
+
+
+
+
+
+{% endblock  %}

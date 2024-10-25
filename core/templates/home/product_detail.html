@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<div class="container-fuild mx-5 my-5">
+    <div class="row d-flex my--5 mx-5 justify-content-center">
+        <div class="col-7">
+
+            <div class="card text-bg-dark text-dark my-5 ">
+                <img src="{{ product.image.url  }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <h5 class="card-title">{{product.name}} </h5>
+                  
+                    <p class="card-text">
+                        {{product.description}}
+                    </p>
+                    <p class="card-text"><small> Price $ {{product.price}} </small></p>
+                </div>
+
+                <a href="{% url 'add_cart' product.id %}" class="btn btn-outline-info   mx-5 my-4">Add to cart</a>
+
+            </div>
+
+        </div>
+
+
+        <p class="bg-secondary py-1 fs-4 text-center  rounded  px-2 text-white my-4 mt-5"> Related products  </p>
+
+            <div class="row d-flex justify-content-center  my-5 ">
+      
+                {% for product in related_category  %}
+          
+                <div class="col-3 mx-3 my-3 ">
+                  <div href="" class="card border-secondary bg-secondary text-white  rounded " style="width: 18rem;">
+                    
+                    <img src="{{ product.image.url }}"" class="" alt="...">
+                    <div class="card-body">
+                   
+                      <h5 class="card-title"> <p>{{product.name}}</p> </h5>
+                      <p class="card-text">Price  ${{product.price}} </p>
+                      <p class="card-text"> {{product.description}} </p>
+                  
+                      <a href="{% url 'add_cart' product.id %}" class="btn btn-outline-primary mx-2">Add to cart </a>
+                      <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-info   mx-4">view </a>
+                    </div>
+                  </div>
+                </div>
+          
+                {% endfor %}
+          
+            </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

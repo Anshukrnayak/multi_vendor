@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+  <button class="btn btn-outline-primary my-5 mx-4" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    Category
+  </button>
+  
+  <div class="offcanvas offcanvas-start " tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">All product </h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div>
+        Product category list 
+      </div>
+      <div class="dropdown mt-3">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+          Categories
+        </button>
+
+
+        <ul class="dropdown-menu">
+
+          {% for category in category_list %}
+
+          <li><a class="dropdown-item" href="#"> {{category.name}} </a></li>
+          {% endfor %}
+
+
+          
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="container-fluild">
+    <div class="row d-flex justify-content-center ">
+      
+      {% for product in product_list %}
+
+      <div class="col-3 mx-2 my-3 ">
+        <div href="" class="card border-secondary bg-secondary text-white  rounded " style="width: 18rem;">
+          
+          <img src="{{ product.image.url }}"" class="" alt="...">
+          <div class="card-body">
+         
+            <h5 class="card-title"> <p>{{product.name}}</p> </h5>
+            <p class="card-text">Price  ${{product.price}} </p>
+            <p class="card-text"> {{product.description}} </p>
+        
+            <a href="{% url 'add_cart' product.id %}" class="btn btn-outline-primary mx-2">Add to cart </a>
+            <a href="{% url 'product_detail' product.id %}" class="btn btn-outline-info   mx-4">view </a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+
+    </div>
+  </div>
+
+
+
+{% endblock %}

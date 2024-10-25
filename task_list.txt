@@ -1,0 +1,33 @@
+
+
+My todo task list for this project and i am goining to implement all the functionalities of the e commerce project 
+and deploy to online server for production.
+
+
+Todo List 
+
+- Done create virtual enviroment
+- Done install and setup 
+- Done Init database 
+- Done create core app for base page 
+- Done create app for user profile 
+- Done create app for products and create product category
+- Done List out newest products on the front page 
+- Done Product details view 
+- Done category View   
+- Done Add images to the products 
+- Done Vendor details page
+- Done Authentication and authorization
+- Done My account page   
+- Done simple search implementation
+- Done edit product and delete
+- Done CRUD operation   
+- Done Add product to the cart 
+- create checkout page 
+- separate shppers from vendors
+- checkout functionality 
+- vendors must be able to show their orders 
+- vendors must be able to see what they have earned 
+- implement payment getway
+- Deploy project 
+
