@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="bg-gray-100 font-sans antialiased">
+  <div class="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500">
+    <div class="w-full max-w-md bg-white p-8 rounded-lg shadow-lg">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Create Your profile</h2>
+      <form action="" method="POST" enctype="multipart/form-data" >
+       
+
+
+        {% csrf_token  %}
+
+        <div class="mb-4">
+            {% if form.name.errors %}
+                <div class="text-red-500 text-sm mt-2">
+                    {% for error in form.name.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        
+
+
+        <div class="mb-4">
+            <label for="text" class="block text-gray-700 font-medium">Profile image</label>
+          
+            {{form.profile_image}}
+  
+          </div>
+
+        <div class="mb-4">
+          <label for="name" class="block text-gray-700 font-medium">First Name </label>
+            {{form.first_name}}
+    
+
+        </div>
+
+  
+        <div class="mb-4">
+          <label for="text" class="block text-gray-700 font-medium">Last Name</label>
+        
+          {{form.last_name}}
+
+        </div>
+
+        <!-- Password Input -->
+        <div class="mb-6">
+          <label for="password" class="block text-gray-700 font-medium">Phone</label>
+        
+          {{form.phone}}
+
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" 
+          class="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          Sign Up
+        </button>
+      </form>
+
+      
+    </div>
+  </div>
+</main>
+
+
+
+{% endblock %}

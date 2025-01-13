@@ -20,9 +20,6 @@ class Home_Page(ListView):
         context["category_list"] =  category_model.objects.all()
         context['product_list']=product_model.objects.filter(is_delete=False)
 
-        for product in context['product_list']:
-            print(product.name)
-            print(product.image.url)
 
 
         return context

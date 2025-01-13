@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+  <!-- Hero Section -->
+  <!-- Products Section -->
+  <section id="products" class="py-16 bg-white">
+    <div class="max-w-screen-xl mx-auto text-center mb-12">
+      <p class="text-lg text-gray-600">Explore our best-selling products from trusted vendors</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
+      <!-- Product 1 -->
+      
+      {% if product_list %}
+      {% for product in product_list %}
+      <a href="{% url 'product_detail' product.id %}" class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <img src="{{product.product_image.url}}" alt="Product 1" class="w-full h-48 object-cover">
+        <div class="p-4">
+          <h3 class="text-xl font-semibold"> {{product.name}} </h3>
+          <p class="text-gray-500 mt-2">$ {{product.price}} </p>
+          <button class="bg-blue-600 text-white mt-4 px-4 py-2 rounded-lg w-full hover:bg-blue-500 transition">Add to Cart</button>
+        </div>
+        </a>
+
+      {% endfor %}
+      {% else %}
+      <p> Prodcut list is empty  </p>
+      
+      {% endif %}
+      
+      <!-- Add more products similarly -->
+      
+   
+    </div>
+  </section>
+
+
+
+{% endblock %}

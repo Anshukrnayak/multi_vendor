@@ -1,0 +1,15 @@
+
+# 1 Done project setup
+# 2 Done Database desgin 
+# 3 Done create models 
+# 4 Done Create superuser or Admin for testing data 
+# 4.1 Done create views
+# 4.2 create product list  
+# 5 Authentication and authorization 
+# 5.1 profile page 
+# 6 product view CRUD
+# 7 Vendor view CRUD and permission 
+# 8 cart functionality 
+# 9 place order functionality
+# 10 payement getway intergration
+

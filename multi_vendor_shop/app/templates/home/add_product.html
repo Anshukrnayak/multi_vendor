@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    
+    <div class="mx-16 my-16">
+
+    <form action="" method="POST" enctype="multipart/form-data">        
+        <h2 class="text-center font-semibold "> Add new product  </h2>
+        
+        {% csrf_token  %}
+        
+        {{form.as_p}}
+
+        <button type="submit"  
+          class="w-full my-10 py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+          Submit
+        </button>
+      </form>
+
+    </div>
+      
+
+
+{% endblock %}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi Vendor Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+
+
+    <nav class="bg-gray-900 border-b border-gray-700">
+        <div class="max-w-screen-xl mx-auto px-6 py-4 flex justify-between items-center">
+          
+          <!-- Logo Section -->
+          <div class="flex items-center space-x-4">
+            <a href="#" class="text-2xl font-bold text-blue-400 hover:text-blue-300 transition">ShopMate</a>
+          </div>
+    
+          <!-- Search Bar -->
+          <div class="relative w-1/3 md:w-1/2 lg:w-1/3">
+            <input type="text" class="bg-gray-800 text-white border border-gray-700 rounded-lg py-2 pl-10 pr-4 w-full focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Search">
+            <svg class="absolute top-1/2 left-3 transform -translate-y-1/2 text-gray-400 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 18a8 8 0 1 0 0-16 8 8 0 0 0 0 16zM20 20l-4-4"></path>
+            </svg>
+          </div>
+    
+          <!-- Navbar Links -->
+          <div class="hidden md:flex space-x-6 items-center">
+        
+            <a href="{% url 'index' %}" class="text-gray-300 hover:text-white transition">Home</a>
+            <a href="#" class="text-gray-300 hover:text-white transition">Cart</a>
+            
+    
+            {% if require.user.is_vendor %}
+
+            <a href="#" class="text-gray-300 hover:text-white transition">Add New</a>
+            <a href="#" class="text-gray-300 hover:text-white transition"> Manage Product </a>
+            
+            {% endif %}
+
+        </div>
+    
+          <!-- User Profile and Actions -->
+          <div class="flex items-center space-x-4">
+            <!-- Create Post Button -->
+
+            {% if request.user.is_authenticated %}
+            <a href={% url 'logout' %} class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full transition">Logout</a>
+         
+          
+            <a href={% url 'profile_view' %} class="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600 transition">
+                <svg class="text-white w-5 h-5" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M10 10a3 3 0 100-6 3 3 0 000 6zm0 2a6 6 0 00-6 6v2h12v-2a6 6 0 00-6-6z"></path>
+                </svg>
+            </a>
+            {% else %}
+            
+            <a href="{% url 'login' %}" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full transition">Login</a>
+            <a href="{% url 'signup' %}" class="bg-blue-600 hover:bg-blue-500 text-white px-4 py-2 rounded-full transition">Signup</a>
+            
+            {% endif %}
+            <!-- Profile Icon -->
+    
+
+          </div>
+          
+        </div>
+      </nav>
+
+{% block content  %}
+
+{% endblock %}
+  <!-- Footer Section -->
+<!-- Footer Section -->
+  <footer class="bg-gray-800 text-gray-300 py-12">
+    <div class="max-w-screen-xl mx-auto px-6 md:px-12">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        
+        <!-- About Section -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">About Us</h3>
+          <p class="text-gray-400">We are a passionate team bringing the best shopping experience to you. Our goal is to connect great vendors and buyers seamlessly.</p>
+        </div>
+
+        <!-- Quick Links Section -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">Quick Links</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="hover:text-blue-400 transition">Home</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Shop</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">About</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Contact</a></li>
+            <li><a href="#" class="hover:text-blue-400 transition">Privacy Policy</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media Section -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-4">Follow Us</h3>
+          <div class="flex space-x-6">
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M22.23 0H1.77C.79 0 0 .79 0 1.77v20.46C0 23.21.79 24 1.77 24h20.46c.98 0 1.77-.79 1.77-1.77V1.77C24 .79 23.21 0 22.23 0zm-5.2 19.54h-3.37v-6.07c0-1.45-.52-2.44-1.82-2.44-1.11 0-1.77.75-1.77 1.84v6.67h-3.38V9.16h3.38v1.96c.45-.69 1.26-1.68 2.66-1.68 1.95 0 3.59 1.28 3.59 4.09v6.01h-.02zM12 0c3.17 0 5.87 1.03 7.91 2.76l-1.85 2.55c-1.37-.94-3.14-1.5-5.06-1.5-4.77 0-8.64 3.72-8.64 8.31 0 4.58 3.87 8.3 8.64 8.3 3.03 0 5.9-1.07 7.91-2.91l1.85 2.56c-2.45 1.9-5.63 3.06-9.76 3.06-7.55 0-13.67-6.06-13.67-13.53 0-7.47 6.12-13.52 13.67-13.52z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M23 3.2c-.9.4-1.8.6-2.8.8 1-.6 1.7-1.7 2-3-1 .6-2 1-3.2 1.2-.6-.6-1.3-1-2.2-1-1.7 0-3.1 1.4-3.1 3.1 0 .2 0 .4.1.6-2.6-.1-5-1.3-6.6-3.1-1-.7-1.5-1.9-1.5-3.1 0-2.3 1.2-4.3 3-5.4 1-.2 2-.3 3-.3 1.8 0 3.5.6 4.9 1.7 1.5-1.8 3.7-2.8 6.1-2.8 4.6 0 8.3 3.7 8.3 8.2 0 .6-.1 1.1-.2 1.7z"/>
+              </svg>
+            </a>
+            <a href="#" class="text-gray-400 hover:text-blue-400 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
+                <path d="M12 2C6.5 2 2 6.5 2 12c0 4.8 3.5 8.9 8 9.8V15H8v-3h2v-2c0-2.1 1.2-3.3 3.1-3.3.9 0 1.9.1 2.1.1v2.2h-1.3c-1.3 0-1.7.6-1.7 1.7v2.1h3.3l-.5 3h-2.8v6.8c4.5-1 8-5 8-9.8 0-5.5-4.5-10-10-10z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Footer Bottom Section -->
+      <div class="mt-12 border-t border-gray-700 pt-6 text-center">
+        <p class="text-sm text-gray-500">&copy; 2025 ShopApp. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+</body>
+</html>
