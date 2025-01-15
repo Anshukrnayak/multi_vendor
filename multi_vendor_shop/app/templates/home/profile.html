@@ -41,7 +41,7 @@
             {% if profile.is_vendor %}
             <a href="{% url 'add_product' %}" class="bg-blue-500 text-white py-2 px-6 rounded-full hover:bg-blue-400 transition"> Add new product </a>
             {% endif %}
-            <a href="#" class="bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-400 transition">Log Out</a>
+            <a href="{% url 'manage_products' %}" class="bg-gray-500 text-white py-2 px-6 rounded-full hover:bg-gray-400 transition">Manage product</a>
         </div>
     </div>
 

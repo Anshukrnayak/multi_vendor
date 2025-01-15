@@ -46,4 +46,7 @@ class CartItem(models.Model):
     quantity=models.IntegerField(default=0)
     created_at=models.DateField(auto_now_add=True)
     update_at=models.DateField(auto_now=True)    
-    
+
+     
+    def total_price(self):
+        return self.product.price * self.quantity

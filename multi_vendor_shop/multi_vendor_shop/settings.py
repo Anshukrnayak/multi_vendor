@@ -17,6 +17,8 @@ SECRET_KEY = 'django-insecure-!t1yyto@a_%loyfei*p)%!v1rp&+(03^-4g5go-6_1=%lrp=(&
 DEBUG = True
 
 ALLOWED_HOSTS = []
+# settings.py
+LOGIN_URL = '/account/login/'
 
 
 # Application definition
@@ -31,7 +33,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'account',
-    
+    'cart',
+       
     
 ]
 

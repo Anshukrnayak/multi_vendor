@@ -12,7 +12,8 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('',include('app.urls')),
-    path('account/',include('account.urls'))
+    path('account/',include('account.urls')),
+    path('cart/',include('cart.urls')),
 ]
 
 # urls.py

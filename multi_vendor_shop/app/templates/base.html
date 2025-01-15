@@ -29,7 +29,7 @@
           <div class="hidden md:flex space-x-6 items-center">
         
             <a href="{% url 'index' %}" class="text-gray-300 hover:text-white transition">Home</a>
-            <a href="#" class="text-gray-300 hover:text-white transition">Cart</a>
+            <a href="{% url 'view_cart' %}" class="text-gray-300 hover:text-white transition">Cart</a>
             
     
             {% if require.user.is_vendor %}

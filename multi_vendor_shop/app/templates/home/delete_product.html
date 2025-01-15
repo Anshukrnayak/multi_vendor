@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<main class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <!-- Delete Confirmation Modal -->
+    <div class="bg-white rounded-lg shadow-xl p-8 max-w-sm w-full">
+      <h2 class="text-2xl font-semibold text-center text-gray-800 mb-4">Are you sure?</h2>
+      <p class="text-center text-gray-600 mb-6">
+        You are about to delete this item. This action cannot be undone.
+      </p>
+  
+    <form method="post">
+        {% csrf_token %}
+        
+        <a href="{% url 'manage_products' %}" class="bg-gray-900  mx-14 text-white px-4 py-2 rounded-md text-sm hover:bg-blue-400 transition">
+            Cancel
+          </a>
+
+          <button type="submit"  class="bg-red-600 text-white px-4 py-2 rounded-md text-sm hover:bg-red-700 transition">
+            Delete
+          </button>
+    
+    </form>
+  
+      <div class="flex justify-between">
+      </div>
+    </div>
+  
+  </main>
+
+  {% endblock %}

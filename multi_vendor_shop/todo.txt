@@ -4,11 +4,11 @@
 # 3 Done create models 
 # 4 Done Create superuser or Admin for testing data 
 # 4.1 Done create views
-# 4.2 create product list  
-# 5 Authentication and authorization 
-# 5.1 profile page 
-# 6 product view CRUD
-# 7 Vendor view CRUD and permission 
+# 4.2 Done create product list  
+# 5 Done Authentication and authorization 
+# 5.1 Done  profile page 
+# 6  product view CRUD
+# 7  Vendor view CRUD and permission : error  
 # 8 cart functionality 
 # 9 place order functionality
 # 10 payement getway intergration
